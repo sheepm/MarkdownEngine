@@ -1,5 +1,6 @@
 package com.sheepm.core.token;
 
+import com.sheepm.core.drawable.Drawable;
 import com.sheepm.core.render.Render;
 
 /**
@@ -11,5 +12,10 @@ public class TextSpan implements Token {
     @Override
     public void accept(Render render) {
 
+    }
+
+    @Override
+    public Drawable convert() {
+        return null;
     }
 }

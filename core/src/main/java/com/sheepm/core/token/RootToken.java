@@ -1,5 +1,7 @@
 package com.sheepm.core.token;
 
+import com.sheepm.core.drawable.Drawable;
+import com.sheepm.core.drawable.RootDrawable;
 import com.sheepm.core.render.Render;
 
 import java.util.LinkedList;
@@ -23,6 +25,15 @@ public class RootToken implements Token {
     @Override
     public void accept(Render render) {
         render.visit(this);
+    }
+
+    @Override
+    public Drawable convert() {
+        RootDrawable drawable = new RootDrawable();
+        for (int i = 0; i < list.size(); i++) {
+            drawable.addDrawable(list.get(i).convert());
+        }
+        return drawable;
     }
 
     public RootToken nextValue(){
